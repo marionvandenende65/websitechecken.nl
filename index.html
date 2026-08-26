@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website laten controleren op fouten</title>
+<meta name="description" content="Uw website laten controleren op fouten: snelheid, techniek, vindbaarheid en beveiliging, met een helder rapport en concrete verbeteringen.">
+<link rel="canonical" href="https://websitechecken.nl/">
+<meta property="og:title" content="Website laten controleren op fouten">
+<meta property="og:description" content="Uw website laten controleren op fouten: snelheid, techniek, vindbaarheid en beveiliging, met een helder rapport en concrete verbeteringen.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:url" content="https://websitechecken.nl/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --brand:#1f5fbf;--brand-d:#16448a;--brand-l:#5082cd;
+  --green:#8DC340;--green-d:#6f9e26;
+  --ink:#1a1f36;--muted:#5a6478;--bg:#f7f8fb;--line:#e3e6ef;--white:#fff;
+  --radius:10px;
+  --shadow:0 6px 24px rgba(31,95,191,.10);--shadow-lg:0 18px 48px rgba(31,95,191,.16);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Inter','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--green-d)}
+h1,h2,h3,h4{font-family:'Inter',system-ui,sans-serif;color:var(--brand);line-height:1.24;margin:0 0 .6em;letter-spacing:-.01em;overflow-wrap:break-word;text-wrap:balance}
+h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800}
+h2{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0 0 1em}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- Header ---------- */
+.site-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+.logo-link{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:1.32rem;letter-spacing:-.02em;color:var(--brand);text-decoration:none}
+.logo-link .mk{width:30px;height:30px;flex:0 0 auto;border-radius:7px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:800;letter-spacing:0}
+.logo-link:hover{color:var(--brand)}
+.main-nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.main-nav a{padding:9px 14px;border-radius:8px;font-weight:600;color:var(--ink);font-size:.95rem;transition:background .15s ease,color .15s ease}
+.main-nav a:hover,.main-nav a.active{background:var(--brand);color:#fff}
+.nav-cta{background:var(--green)!important;color:#fff!important;padding:9px 18px!important}
+.nav-cta:hover{background:var(--green-d)!important}
+.nav-toggle{display:none;background:none;border:0;font-size:1.6rem;line-height:1;color:var(--brand);cursor:pointer;padding:4px 6px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;font-weight:700;padding:13px 26px;border-radius:8px;border:0;cursor:pointer;font-size:1rem;line-height:1.2;transition:transform .15s ease,background .15s ease,color .15s ease;text-decoration:none}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-d);color:#fff;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.85)}
+.btn-ghost:hover{background:#fff;color:var(--brand)}
+.btn-blue{background:var(--brand);color:#fff}
+.btn-blue:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+
+/* ---------- Hero (home) ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,var(--brand-d) 0%,var(--brand) 58%,var(--green) 150%);padding:90px 0 100px}
+.hero.photo::before{content:'';position:absolute;inset:0;background:var(--hbg) center/cover no-repeat;z-index:0;opacity:.9}
+.hero.photo::after{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,var(--o1) 0%,var(--o2) 62%,var(--o3) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.hero-eyebrow{display:inline-block;background:var(--green);color:#fff;padding:6px 14px;border-radius:99px;font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.32);margin-bottom:.4em}
+.hero p.lead{font-size:1.18rem;max-width:640px;margin-bottom:32px;color:rgba(255,255,255,.94);text-shadow:0 1px 8px rgba(0,0,0,.32)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---------- Intro strip ---------- */
+.intro{padding:62px 0 26px;text-align:center}
+.intro .ey{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);margin-bottom:12px}
+.intro h2{color:var(--brand)}
+.intro p{max-width:740px;margin:0 auto 1em;color:var(--muted);font-size:1.08rem}
+
+/* ---------- Blocks grid (categorie-kaarten) ---------- */
+.blocks{padding:38px 0 80px}
+.blocks.top{padding-top:64px}
+.section-head{max-width:1180px;margin:0 auto 26px;padding:0 24px}
+.section-head .ey{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);margin-bottom:8px}
+.section-head h2{color:var(--brand);margin:0}
+.blocks-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.block{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;text-decoration:none;color:inherit}
+.block:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--green)}
+.block-img{aspect-ratio:4/3;overflow:hidden;background:var(--brand);position:relative}
+.block-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.block:hover .block-img img{transform:scale(1.04)}
+.block-img.mono{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-l) 100%)}
+.block-img.mono span{font-family:'Inter',sans-serif;font-weight:800;font-size:2.4rem;color:rgba(255,255,255,.92);letter-spacing:-.02em}
+.block-body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column}
+.block .kv{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-d);margin-bottom:8px}
+.block h3{color:var(--brand);margin:0 0 8px}
+.block p{color:var(--muted);margin-bottom:14px;font-size:.97rem}
+.block-link{margin-top:auto;color:var(--green-d);font-weight:700;font-size:.92rem}
+.block-link::after{content:' \2192';transition:margin-left .15s ease}
+.block:hover .block-link::after{margin-left:4px}
+.block .meta-dt{font-size:.82rem;color:var(--muted);font-weight:500;margin-top:12px}
+
+/* ---------- Page hero (categorie / blog / index) ---------- */
+.page-hero{background:linear-gradient(135deg,var(--brand-d) 0%,var(--brand) 70%,var(--brand-l) 130%);color:#fff;padding:56px 0 64px}
+.page-hero .crumb{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:16px}
+.page-hero .crumb a{color:rgba(255,255,255,.95)}
+.page-hero .crumb a:hover{color:#fff;text-decoration:underline}
+.page-hero .chip{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:14px}
+.page-hero h1{color:#fff;margin-bottom:.35em}
+.page-hero p{color:rgba(255,255,255,.9);font-size:1.1rem;max-width:680px;margin-bottom:0}
+.page-hero .byline{color:rgba(255,255,255,.82);font-size:.92rem;margin-top:8px}
+
+/* ---------- Page body (leeskolom) ---------- */
+.page-body{padding:52px 0 24px}
+.page-body .container{max-width:900px}
+.lead-desc{font-size:1.22rem;line-height:1.6;color:var(--ink);font-weight:500;margin:0 0 26px}
+figure.hero-photo{margin:0 0 30px}
+figure.hero-photo img{border-radius:var(--radius);width:100%;max-height:440px;object-fit:cover;box-shadow:var(--shadow)}
+figure.hero-photo figcaption{font-size:.8rem;color:var(--muted);margin-top:8px}
+.prose{font-size:1.06rem;color:var(--ink)}
+.prose>p:first-of-type{font-size:1.1rem;color:var(--ink)}
+.prose h2{margin-top:36px;color:var(--brand);position:relative;padding-top:22px;border-top:1px solid var(--line)}
+.prose h2::before{content:'';position:absolute;top:-1px;left:0;width:54px;height:3px;background:var(--green)}
+.prose h3{margin-top:26px;color:var(--brand);font-size:1.2rem}
+.prose p{margin:0 0 1.05em}
+.prose a{color:var(--brand);border-bottom:1.5px solid rgba(0,0,0,.12);transition:border-color .15s ease,color .15s ease}
+.prose a:hover{color:var(--green-d);border-color:var(--green)}
+.prose strong{color:var(--brand)}
+.prose ul,.prose ol{margin:0 0 1.1em;padding-left:22px}
+.prose li{margin-bottom:8px}
+.prose ul li::marker{color:var(--green)}
+.prose ol li::marker{color:var(--green);font-weight:700}
+
+/* highlight box */
+.highlight{background:linear-gradient(135deg,rgba(141,195,64,.09),rgba(31,95,191,.06));border-left:4px solid var(--green);border-radius:8px;padding:18px 22px;margin:26px 0}
+.highlight strong{color:var(--brand)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:900px;margin:44px auto 0;padding:0 24px}
+.faq h2{color:var(--brand);font-size:1.6rem;margin-bottom:10px}
+.faq dl{margin:14px 0 0}
+.faq dt{font-weight:700;color:var(--brand);font-size:1.08rem;padding:18px 0 0;border-top:1px solid var(--line)}
+.faq dt:first-of-type{border-top:0;padding-top:0}
+.faq dd{margin:6px 0 18px;color:var(--muted)}
+.faq dd a{color:var(--brand)}
+
+/* ---------- Related ---------- */
+.related{max-width:1180px;margin:56px auto 0;padding:0 24px}
+.related h2{color:var(--brand);font-size:1.6rem;margin-bottom:20px}
+.rel-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+
+/* ---------- Section wrappers ---------- */
+.sec-alt{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.empty{max-width:1180px;margin:40px auto;padding:0 24px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--brand-d);color:rgba(255,255,255,.78);padding:52px 0 22px;margin-top:64px}
+.footer-grid{display:grid;gap:32px;grid-template-columns:2fr 1fr 1fr;margin-bottom:30px}
+.site-footer .brand-col h4{font-size:1.15rem}
+.site-footer .tl{color:rgba(255,255,255,.6);max-width:40ch;font-size:.95rem;margin-top:4px}
+.site-footer h4{color:#fff;margin:0 0 13px;font-size:.98rem}
+.site-footer a{color:rgba(255,255,255,.78);display:block;padding:3px 0}
+.site-footer a:hover{color:var(--green)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.86rem;color:rgba(255,255,255,.6)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:860px){
+  .nav-toggle{display:block}
+  .main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:14px;gap:4px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .main-nav.open{display:flex}
+  .main-nav a{padding:12px 14px;width:100%}
+  .nav-wrap{position:relative}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .site-footer .brand-col{grid-column:1/-1}
+  .hero{padding:64px 0 72px}
+}
+@media(max-width:480px){
+  .container{padding:0 18px}
+  .hero-ctas{flex-direction:column}
+  .hero-ctas .btn{width:100%;text-align:center}
+  .footer-grid{grid-template-columns:1fr}
+  .rel-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .block,.block-img img{transition:none!important}
+  .block:hover{transform:none!important}.block:hover .block-img img{transform:none!important}
+}
+
+</style>
+<!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SCY4CEDL57"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SCY4CEDL57');</script>
+</head>
+<body class="t-home"><style id="dnd-banner-css">:root{--dnd-h:140px}#dnd-banner,#dnd-banner *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.4;letter-spacing:normal;text-transform:none;float:none}#dnd-banner{position:sticky;top:0;z-index:2147483000;display:flex;align-items:center;gap:28px;height:var(--dnd-h);min-height:var(--dnd-h);padding:0 clamp(16px,4vw,40px);background:#fff;border-bottom:1px solid #e2e7ec;box-shadow:0 1px 3px rgba(22,32,43,.06);color:#16202b;overflow:hidden}#dnd-banner .dnd-main{flex:1 1 auto;min-width:0}#dnd-banner .dnd-kicker{display:block;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#0f5c4a;margin-bottom:3px}#dnd-banner .dnd-domain{display:block;font-size:clamp(19px,2.4vw,25px);font-weight:650;color:#16202b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#dnd-banner .dnd-note{display:block;font-size:12.5px;color:#52606d;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#dnd-banner .dnd-stats{display:flex;gap:26px;flex:0 0 auto}#dnd-banner .dnd-stat{text-align:right;white-space:nowrap}#dnd-banner .dnd-stat-v{display:block;font-size:19px;font-weight:700;color:#16202b}#dnd-banner .dnd-stat-v em{font-style:normal;font-size:11.5px;font-weight:500;color:#7b8794}#dnd-banner .dnd-stat-l{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:#7b8794;margin-top:1px}#dnd-banner .dnd-buy{display:flex;align-items:center;gap:16px;flex:0 0 auto}#dnd-banner .dnd-price{font-size:23px;font-weight:700;color:#0f5c4a;white-space:nowrap}#dnd-banner .dnd-cta{display:inline-block;padding:12px 22px;border-radius:10px;background:#0f5c4a;color:#fff;text-decoration:none;font-size:14.5px;font-weight:600;white-space:nowrap;border:0}#dnd-banner .dnd-cta:hover{background:#0a4436;color:#fff;text-decoration:none}@media(max-width:1000px){#dnd-banner .dnd-stats{display:none}}@media(max-width:700px){#dnd-banner{height:auto;min-height:0;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 16px}#dnd-banner .dnd-buy{width:100%;justify-content:space-between;flex-wrap:wrap;gap:10px}#dnd-banner .dnd-note{white-space:normal}}@media(max-width:480px){#dnd-banner .dnd-note{display:none}#dnd-banner{gap:8px;padding:12px 16px}#dnd-banner .dnd-domain{font-size:19px}}@media(max-width:400px){#dnd-banner .dnd-cta{flex:1 1 100%;text-align:center;padding:12px 16px}#dnd-banner .dnd-domain{white-space:normal}}</style><div id="dnd-banner" role="complementary" aria-label="Dit domein is te koop"><div class="dnd-main"><span class="dnd-kicker">Dit domein is te koop</span><span class="dnd-domain">websitechecken.nl</span><span class="dnd-note">Prijs geldt voor de domeinnaam; de ingerichte website tegen meerprijs</span></div><div class="dnd-stats"><div class="dnd-stat"><span class="dnd-stat-v">29 <em>op de site</em></span><span class="dnd-stat-l">Artikelen</span></div><div class="dnd-stat"><span class="dnd-stat-v">14 <em>tekens</em></span><span class="dnd-stat-l">Lengte</span></div></div><div class="dnd-buy"><span class="dnd-price">€ 99</span><a class="dnd-cta" id="dnd-cta" href="https://domeinnaamdesk.nl/domein/websitechecken.nl?utm_source=minisite&amp;utm_medium=banner&amp;utm_campaign=websitechecken.nl">Bekijk op Domeinnaamdesk.nl</a></div></div><script>(function(){var a=document.getElementById("dnd-cta");if(!a)return;a.addEventListener("click",function(){try{var s=sessionStorage.getItem("dnd_sid");if(!s){s=Math.random().toString(36).slice(2)+Date.now().toString(36);sessionStorage.setItem("dnd_sid",s);}fetch("https:\/\/domeinnaamdesk.nl\/api\/track-minisite-click",{method:"POST",keepalive:true,headers:{"Content-Type":"application/json"},body:JSON.stringify({source_domain:location.hostname.replace(/^www\./,""),page_url:location.href,session_id:s})}).catch(function(){});}catch(e){}});})();</script><header class="site-header"><div class="container nav-wrap"><a class="logo-link" href="/"><span class="mk">WE</span><span>Websitechecken</span></a><button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button><nav class="main-nav"><a href="/waarom-controleren/">Waarom controleren</a><a href="/veelvoorkomende-fouten/">Veelvoorkomende fouten</a><a href="/waar-op-letten/">Waar op letten</a><a href="/uitbesteden/">Uitbesteden</a><a href="/contact/" class="nav-cta">Contact</a></nav></div></header><section class="hero photo" style="--hbg:url('/img/website-laten-controleren-en-repareren.webp');--o1:rgba(31,46,110,.86);--o2:rgba(43,62,142,.72);--o3:rgba(141,195,64,.42)"><div class="container hero-inner"><span class="hero-eyebrow">je website regelmatig controle</span><h1>Uw website laten controleren op fouten en direct laten herstellen</h1><p class="lead">Uw website laten controleren op fouten en direct laten herstellen</p><div class="hero-ctas"><a class="btn btn-primary" href="/blog/">Alle artikelen</a><a class="btn btn-ghost" href="/waarom-controleren/">Waarom controleren</a></div></div></section><section class="intro"><div class="container"><span class="ey">Overzicht</span><h2>In het kort</h2><div class="prose"><p>Een website is nooit klaar. Zodra hij online staat, draaien er een content management systeem, plugins of modules, een thema en onderliggende serversoftware, en die onderdelen worden voortdurend bijgewerkt. Elke update kan een conflict veroorzaken: een plugin die niet meer samenwerkt met een nieuwe kernversie, een formulier dat stil breekt, een lettertype dat niet meer laadt. Zonder regelmatige controle merkt u dat vaak pas wanneer een bezoeker een foutmelding tegenkomt of een bestelling misloopt.</p>
+<p>Websitechecken.nl legt uit waarom periodieke controle nodig is, welke fouten het vaakst voorkomen na een update en waar u zelf op kunt letten voordat er schade ontstaat. In de categorie Waarom controleren leest u wat er op het spel staat als onderhoud uitblijft en hoe vaak controle in de praktijk zinvol is. Onder Veelvoorkomende fouten staan concrete problemen zoals een wit scherm, gebroken links of een verlopen SSL-certificaat, met de stappen om ze op te lossen. De categorie Waar op letten geeft een praktisch overzicht van wat een controle zou moeten omvatten, van back-ups tot mobielvriendelijkheid.</p>
+<p>Niet iedereen heeft de tijd of kennis om dit structureel bij te houden, en dat hoeft ook niet per se zelf. In de categorie Uitbesteden staat beschreven wat een onderhoudscontract inhoudt, wat het kost en wanneer uitbesteden logischer is dan het zelf blijven doen. Websitechecken verzorgt zowel de periodieke controle als het herstel van gevonden problemen, zodat een update niet ongemerkt tot een storing leidt.</p></div></div></section><section class="blocks top"><div class="section-head"><span class="ey">Onderwerpen</span><h2>Ontdek per onderwerp</h2></div><div class="container"><div class="blocks-grid"><a class="block" href="/waarom-controleren/"><div class="block-img"><img src="/img/verouderde-plugins-risico.webp" alt="Waarom controleren" loading="lazy"></div><div class="block-body"><h3>Waarom controleren</h3><span class="block-link">Lees verder</span></div></a><a class="block" href="/veelvoorkomende-fouten/"><div class="block-img"><img src="/img/mixed-content-waarschuwing-oplossen.webp" alt="Veelvoorkomende fouten" loading="lazy"></div><div class="block-body"><h3>Veelvoorkomende fouten</h3><span class="block-link">Lees verder</span></div></a><a class="block" href="/waar-op-letten/"><div class="block-img"><img src="/img/browser-compatibiliteit-controleren.webp" alt="Waar op letten" loading="lazy"></div><div class="block-body"><h3>Waar op letten</h3><span class="block-link">Lees verder</span></div></a><a class="block" href="/uitbesteden/"><div class="block-img"><img src="/img/website-laten-controleren-en-repareren.webp" alt="Uitbesteden" loading="lazy"></div><div class="block-body"><h3>Uitbesteden</h3><span class="block-link">Lees verder</span></div></a></div></div></section><section class="sec-alt"><div class="blocks"><div class="section-head"><span class="ey">Kennisbank</span><h2>Recente artikelen</h2></div><div class="container"><div class="blocks-grid"><a class="block" href="/blog/website-laten-controleren-en-repareren/"><div class="block-img"><img src="/img/website-laten-controleren-en-repareren.webp" alt="Hoe het werkt om uw website te laten controleren en repareren" loading="lazy"></div><div class="block-body"><span class="kv">Uitbesteden</span><h3>Hoe het werkt om uw website te laten controleren en repareren</h3><p>Van eerste melding tot opgeloste fout: zo verloopt het traject wanneer u uw website laat controleren en herstellen door Websitec…</p><span class="block-link">Lees verder</span><span class="meta-dt">12 juli 2026</span></div></a><a class="block" href="/blog/zelf-doen-of-uitbesteden-website-onderhoud/"><div class="block-img"><img src="/img/zelf-doen-of-uitbesteden-website-onderhoud.webp" alt="Zelf website-onderhoud doen of uitbesteden: hoe u dat afweegt" loading="lazy"></div><div class="block-body"><span class="kv">Uitbesteden</span><h3>Zelf website-onderhoud doen of uitbesteden: hoe u dat afweegt</h3><p>Techniek, tijd en risico bepalen of zelf onderhouden of uitbesteden beter bij uw website past. Deze factoren geven de doorslag.</p><span class="block-link">Lees verder</span><span class="meta-dt">12 juli 2026</span></div></a><a class="block" href="/blog/kosten-website-onderhoud-uitbesteden/"><div class="block-img"><img src="/img/kosten-website-onderhoud-uitbesteden.webp" alt="Wat het kost om website-onderhoud uit te besteden in 2026" loading="lazy"></div><div class="block-body"><span class="kv">Uitbesteden</span><h3>Wat het kost om website-onderhoud uit te besteden in 2026</h3><p>De kosten voor uitbesteed website-onderhoud lopen sterk uiteen. De complexiteit van uw site bepaalt waar u in de prijsrange tere…</p><span class="block-link">Lees verder</span><span class="meta-dt">11 juli 2026</span></div></a></div></div><div class="container" style="margin-top:26px"><a class="block-link" style="color:var(--green-d);font-weight:700" href="/blog/">Alle artikelen</a></div></div></section><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="brand-col"><h4>Websitechecken</h4><p class="tl">Uw website laten controleren op fouten en direct laten herstellen</p></div><div><h4>Onderwerpen</h4><a href="/waarom-controleren/">Waarom controleren</a><a href="/veelvoorkomende-fouten/">Veelvoorkomende fouten</a><a href="/waar-op-letten/">Waar op letten</a><a href="/uitbesteden/">Uitbesteden</a></div><div><h4>Blog</h4><a href="/">Home</a><a href="/blog/">Alle artikelen</a><a href="/contact/">Contact</a><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom"><span>&copy; 2026 Websitechecken &middot; Maddeco</span><span>websitechecken.nl</span></div></div></footer><script>(function(){var t=document.querySelector(".nav-toggle"),n=document.querySelector(".main-nav");if(t&&n){t.addEventListener("click",function(){var o=n.classList.toggle("open");t.setAttribute("aria-expanded",o?"true":"false");});}})();</script></body></html>
